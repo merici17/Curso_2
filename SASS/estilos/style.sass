@@ -2,6 +2,8 @@
 $color1: linear-gradient(gray,black)
 $color2: linear-gradient(#b0e60f,#293602)
 $ancho: 300px
+$colorvar1: green
+$colorvar2: blue
 
 /* Mixins */
 @mixin flexColCenter()
@@ -47,4 +49,90 @@ body
             img
                 width: $ancho
         section
-            @include superMixin(flex,column,null,center,center,null,100%,500px,$color2)           
+            @include superMixin(flex,column,null,center,center,null,100%,500px,$color2)   
+
+/*	
+    Metodologia BEM(Block, Element, Modifier / Bloque, Elemento, Modificador) 
+    se utiliza para abreviar selecciones.
+    */
+
+.caja-bem
+    @include superMixin(flex,column,null,center,center,null,100%,500px,blue)
+    gap: 10px
+    /*& Equivale a: .caja-bem por lo tanto, &_hijo equivale a: .caja-bem_hijo*/
+    &_hijo
+        border: 3px solid white
+        padding: 10px
+        /*& Equivale a: .caja-bem por lo tanto, &_hijo equivale a: .caja-bem_hijo*/
+        &_parrafo
+            color: orange
+
+.caja-bem_2
+    @include superMixin(flex,column,null,center,center,null,100%,500px,purple)
+    /*&_parrafo: .caja-bem_2_parrafo */
+    &_parrafo
+        /*&: .caja-bem_2_parrafo | &_1: .caja-bem_2_parrafo_1 ..2 etc */
+        &_1
+            background: white
+        &_2
+            background: skyblue
+            color: white
+            cursor: pointer
+        &_2:hover
+            color: orange
+        &_2::first-letter
+            color: red
+        &_7
+            background: yellow
+        &_9
+            @extend .caja-bem_2_parrafo_2
+            border-radius: 10px
+        &_4
+            @extend .caja-bem_2_parrafo_9
+            padding: 10px
+
+/*
+    Funciones
+        transparentize($color, $nivel): Hace $color más transparente incrementando el canal alpha 
+        con un $nivel entre 0 y 1. Es idéntico a fade-out($color, $nivel).
+        
+        grayscale($color): Devuelve un color en escala de grises con el mismo lightness que $color. 
+        Es idéntico a change-color($color, $saturation: 0%).
+    */
+
+// @function opacidad($direction,$color-1,$color-2)
+//     $gradiente: linear-gradient($direction, $color-1, $color-2)
+//     @return transparentize($gradiente,0.5)
+
+// .caja-2 
+//     background: opacidad(to left,$colorvar1,$colorvar2)
+
+
+/*
+    each es una directiva que permite iterar (recorrer) sobre una lista y aplicar un conjunto
+    de declaraciones de estilo a cada elemento de la lista.
+    */
+
+.caja-parrafo
+    @include superMixin(flex,column,null,center,center,null,100%,500px,#aa7979)
+    gap: 10px
+
+$colores: red,blue,orange,purple,yellow,gray,skyblue,greenyellow,pink,aqua
+@each $color in $colores
+    /*.parrafo_purple*/
+    .parrafo_#{$color}
+        color: $color
+        background: #3b3a3a
+        padding: 5px
+        border-radius:10px
+
+
+$numeros: 5,7,9,11,13,15,17,19,21,23
+@each $elemento in $numeros
+    /*.parrafo_purple*/
+    .parrafo_#{$elemento}
+        color: red
+        background: #3b3a3a
+        font-size: $elemento + px
+        padding: 5px
+        border-radius:10px
