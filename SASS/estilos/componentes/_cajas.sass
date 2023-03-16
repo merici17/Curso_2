@@ -1,0 +1,39 @@
+/*	
+    Metodologia BEM(Block, Element, Modifier / Bloque, Elemento, Modificador) 
+    se utiliza para abreviar selecciones.
+    */
+
+.caja-bem
+    @include superMixin(flex,column,null,center,center,null,100%,500px,blue)
+    gap: 10px
+    /*& Equivale a: .caja-bem por lo tanto, &_hijo equivale a: .caja-bem_hijo*/
+    &_hijo
+        border: 3px solid white
+        padding: 10px
+        /*& Equivale a: .caja-bem por lo tanto, &_hijo equivale a: .caja-bem_hijo*/
+        &_parrafo
+            color: orange
+
+.caja-bem_2
+    @include superMixin(flex,column,null,center,center,null,100%,500px,purple)
+    /*&_parrafo: .caja-bem_2_parrafo */
+    &_parrafo
+        /*&: .caja-bem_2_parrafo | &_1: .caja-bem_2_parrafo_1 ..2 etc */
+        &_1
+            background: white
+        &_2
+            background: skyblue
+            color: white
+            cursor: pointer
+        &_2:hover
+            color: orange
+        &_2::first-letter
+            color: red
+        &_7
+            background: yellow
+        &_9
+            @extend .caja-bem_2_parrafo_2
+            border-radius: 10px
+        &_4
+            @extend .caja-bem_2_parrafo_9
+            padding: 10px
