@@ -98,12 +98,6 @@ body main section {
   padding: 10px;
 }
 
-/*  Funciones
- *      transparentize($color, $nivel): Hace $color más transparente incrementando el canal alpha 
- *      con un $nivel entre 0 y 1. Es idéntico a fade-out($color, $nivel).
- *      grayscale($color): Devuelve un color en escala de grises con el mismo lightness que $color. 
- *      Es idéntico a change-color($color, $saturation: 0%).
- *  */
 /*  each es una directiva que permite iterar (recorrer) sobre una lista y aplicar un conjunto
  *  de declaraciones de estilo a cada elemento de la lista.
  *  */
@@ -286,4 +280,11 @@ body main section {
   font-size: 23px;
   padding: 5px;
   border-radius: 10px;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*  Funciones
+ *      transparentize($color, $nivel): Hace $color más transparente incrementando el canal alpha 
+ *      con un $nivel entre 0 y 1. Es idéntico a fade-out($color, $nivel).
+ *      grayscale($color): Devuelve un color en escala de grises con el mismo lightness que $color. 
+ *      Es idéntico a change-color($color, $saturation: 0%).
+ *  *//*# sourceMappingURL=style.css.map */
