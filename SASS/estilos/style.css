@@ -10,6 +10,25 @@
   top: 0px;
 }
 
+@keyframes miAnimacion {
+  0% {
+    background: red;
+  }
+  33% {
+    background: blue;
+  }
+  66% {
+    background: yellow;
+  }
+  100% {
+    background: green;
+  }
+}
+#cajaAnimada {
+  background: pink;
+  animation: miAnimacion 5s linear 500ms running infinite alternate;
+}
+
 /* Anidamiento */
 body {
   width: 100%;

@@ -36,3 +36,20 @@ $colorvar2: blue
     box-sizing: border-box
     margin: 0px
     top: 0px
+
+@mixin animacion($nombre, $duracion, $funcionDeTiempo, $delay, $estado, $repeticiones, $direccion)
+    animation: $nombre $duracion $funcionDeTiempo $delay $estado $repeticiones $direccion
+
+@keyframes miAnimacion
+    0%
+        background: red
+    33%
+        background: blue
+    66%
+        background: yellow
+    100%
+        background: green
+
+#cajaAnimada
+    background: pink
+    @include animacion($nombre: miAnimacion, $duracion:5s , $funcionDeTiempo:linear , $delay:500ms , $estado:running, $repeticiones: infinite, $direccion: alternate )
