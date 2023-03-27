@@ -301,6 +301,47 @@ body main section {
   border-radius: 10px;
 }
 
+.claseCaja {
+  background-color: red;
+}
+
+.elemento-1 {
+  width: 50px;
+  height: 50px;
+}
+
+.elemento-2 {
+  width: 100px;
+  height: 100px;
+}
+
+.elemento-3 {
+  width: 150px;
+  height: 150px;
+}
+
+.elemento-4 {
+  width: 200px;
+  height: 200px;
+}
+
+.elemento-5 {
+  width: 250px;
+  height: 250px;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
 /*  Funciones
  *      transparentize($color, $nivel): Hace $color más transparente incrementando el canal alpha 
  *      con un $nivel entre 0 y 1. Es idéntico a fade-out($color, $nivel).
