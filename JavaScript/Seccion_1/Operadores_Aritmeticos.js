@@ -17,6 +17,8 @@ let nombre = "Diego ";
 let apellido = "Parra";
 console.log(nombre + apellido);
 
+console.log("Diego" + " " + "Parra");
+
 let edad = 30;
 
 //Concatatenacion
